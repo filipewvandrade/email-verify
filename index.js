@@ -126,12 +126,12 @@ function startDNSQueries(params){
         }
       }
 
-      params.options.smtp = addresses[lowestPriorityIndex].exchange
-      logger.info("Choosing " + params.options.smtp + " for connection")
-      beginSMTPQueries(params)
+      params.callback(null, { success: true, info: (params.email + ' is ' + 'a valid' + ' address'), addr: params.email, code: infoCodes.finishedVerification })
+
+      // params.options.smtp = addresses[lowestPriorityIndex].exchange
+      // logger.info("Choosing " + params.options.smtp + " for connection")
+      // beginSMTPQueries(params)
     }
-
-
   })
 }
 
